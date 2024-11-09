@@ -1,0 +1,167 @@
+/* Основные стили */
+html, body {
+    height: 100%;           /* Использует 100% высоты окна */
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif; /* Общий шрифт */
+    background-color: #f9f9f9;
+}
+
+.container {
+    display: flex;
+    height: 100vh;          /* 100% высоты окна */
+}
+
+/* Боковая панель с логотипом */
+.sidebar {
+    width: 250px;              /* Ширина боковой панели */
+    background: #007BFF;       /* Цвет боковой панели */
+    color: white;              /* Цвет текста */
+    display: flex;
+    flex-direction: column;    /* Вертикальная компоновка элементов */
+    align-items: center;       /* Центрируем элементы по горизонтали */
+    padding: 20px;
+}
+
+.logo {
+    width: 100px;              /* Ширина логотипа */
+    margin-bottom: 20px;       /* Отступ между логотипом и вкладками */
+}
+
+/* Вкладки */
+.tabs {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;               /* Ширина вкладок */
+}
+
+.tabs li {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 10px 15px;
+    gap: 8px;
+    cursor: pointer;
+    background: transparent; /* Прозрачный фон вкладок */
+    color: white;            /* Цвет текста вкладок */
+    border-radius: 6px;
+    transition: background 0.2s;
+}
+
+.tabs li:hover {
+    background: rgba(255, 255, 255, 0.2); /* Цвет фона при наведении */
+}
+
+.tabs li.active {
+    background: rgba(255, 255, 255, 0.4); /* Цвет активной вкладки */
+}
+
+/* Содержимое основного поля */
+.content {
+    flex-grow: 1;               /* Заполняем оставшееся пространство */
+    padding: 20px;
+    display: flex;
+    flex-direction: column;     /* Вертикальная компоновка */
+    align-items: flex-start;    /* Выровнять по левому краю */
+}
+
+/* Заголовки и текст */
+h2 {
+    color: #2A2A2A;             /* Цвет заголовка */
+    margin-bottom: 10px;
+}
+
+/* Поле загрузки файлов */
+.upload-field {
+    display: flex;
+    flex-direction: column;     /* Вертикальная компоновка */
+    justify-content: center;
+    align-items: center;
+    padding: 56px;
+    gap: 24px;
+    width: 100%;               /* Занимает всю ширину */
+    border: 1px dashed rgba(0, 0, 0, 0.4);    /* Дашированная граница */
+    border-radius: 10px;
+    background-color: #fff;    /* Цвет фона для поля загрузки */
+}
+
+.upload-button {
+    width: 150px;               /* Ширина кнопки */
+    padding: 10px;
+    background-color: #007BFF; /* Цвет кнопки */
+    color: white;               /* Цвет текста на кнопке */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.upload-button:disabled {
+    background-color: #ccc;  /* Серый цвет фона для неактивной кнопки */
+    color: #666;              /* Серый цвет текста для неактивной кнопки */
+    cursor: not-allowed;      /* Изменяем указатель курсора на "не разрешено" */
+}
+
+.upload-button:hover {
+    background-color: #0056b3; /* Темнее для наведения */
+}
+
+/* Изображения */
+.image-grid {
+    display: flex;
+    flex-wrap: wrap;           /* Разрешаем перенос строк */
+    gap: 10px;                 /* Отступ между изображениями */
+}
+
+.image-item {
+    flex: 1 1 calc(25% - 10px); /* Занимает 25% ширины контейнера с учетом отступа */
+    box-sizing: border-box;      /* Не учитывать границы и паддинги в ширине и высоте */
+}
+
+.result-image {
+    width: 100%;                 /* Уменьшаем до 100% контейнера */
+
+    height: auto;                /* Высота изображения сохраняет пропорции */
+}
+
+/* Уменьшенное загруженное изображение */
+.result-image-large {
+    width: 50%;                 /* Ширина загруженного изображения 50% */
+    height: auto;               /* Высота сохраняет пропорции */
+}
+
+/* Таблицы */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+}
+
+th, td {
+    padding: 15px;
+    text-align: left;
+}
+
+th {
+    background: #007BFF; /* Основной цвет заголовка */
+    color: white;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 100%;              /* Полная ширина на мобильных устройствах */
+        border-right: none;
+        border-bottom: 1px solid #ddd;
+    }
+
+    /* Изображения на мобильных устройствах */
+    .image-item {
+        flex: 1 1 calc(50% - 10px); /* Занимает 50% ширины контейнера на мобильных устройствах */
+    }
+}
