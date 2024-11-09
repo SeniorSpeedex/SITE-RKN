@@ -22,6 +22,11 @@
 ```bash
 pip install tensorflow numpy pandas flask zipfile pillow mimetypes datetime
 ```
+Чтобы запустить сайт, необходимо ввести
+```bash
+python app2.py
+```
+Или нажать кнопку старта в вашем IDE.
 **Kill-фичи:**
 1) Возможность скачивания изображений
 2) История поиска изображений
