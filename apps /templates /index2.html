@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>РКН - Поиск смысловых копий изображений</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style2.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <img src="{{ url_for('static', filename='logo.png') }}" alt="Логотип" class="logo">
+            <ul class="tabs">
+                <li class="active" onclick="switchTab('search')">Поиск копий</li>
+                <li onclick="switchTab('history')">История поисков</li>
+                <li><a href="/history">История</a></li>
+            </ul>
+        </div>
+
+        <div class="content" id="search">
+            <h2>Поиск смысловых копий изображений</h2>
+            <div class="upload-field">
+                <form action="/compare" method="post" enctype="multipart/form-data" style="display: inline-block;">
+                    <input type="file" name="image" accept="image/*" required>
+                    <button type="submit" class="upload-button">Загрузить</button>
+                </form>
+                <form action="/download" method="get" style="display: inline-block; margin-left: 10px;">
+                    <button type="submit" class="upload-button" id="download-button" disabled>Скачать архив</button>
+                </form>
+            </div>
+
+            {% if uploaded_image %}
+                <h3>Загруженное изображение:</h3>
+                <div class="image-item">
+                    <img src="{{ url_for('static', filename='DASD/' ~ uploaded_image) }}" alt="Загруженное изображение" class="result-image-large">
+                </div>
+            {% endif %}
+
+            {% if results is not none %}
+                <h3>Найденные копии:</h3>
+                <div class="image-grid">
+                    {% if results %}
+                        {% for result in results %}
+                            <div class="image-item">
+                                <img src="{{ url_for('static', filename='DASD/' ~ result) }}" alt="Копия" class="result-image">
+                            </div>
+                        {% endfor %}
+                    {% else %}
+                        <p>Не найдено</p>
+                    {% endif %}
+                </div>
+                <script>
+                    // Активируем кнопку скачивания архива после завершения поиска
+                    document.getElementById('download-button').disabled = false;
+                </script>
+            {% endif %}
+        </div>
+
+        <div class="content" id="history" style="display: none;">
+            <h2>История поисков</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Дата/Время</th>
+                        <th>Статус</th>
+                        <th>Сходство</th>
+                        <th>Изображения</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% if history %}
+
+                        {% for entry in history %}
+                            <tr>
+                                <td>{{ entry.date_time }}</td>
+                                <td>{{ entry.status }}</td>
+                                <td>{{ entry.similarity }}</td>
+                                <td>
+                                    <a href="{{ url_for('static', filename='images/' ~ entry.images_found) }}">Скачать</a>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    {% endif %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        function switchTab(tab) {
+            const contents = document.querySelectorAll('.content');
+            contents.forEach(content => content.style.display = 'none');
+            document.getElementById(tab).style.display = 'block';
+
+            const tabs = document.querySelectorAll('.tabs li');
+            tabs.forEach(t => t.classList.remove('active'));
+            event.target.classList.add('active');
+        }
+    </script>
+</body>
+</html>
