@@ -1,1 +1,29 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>История поиска</title>
+</head>
+<body>
+    <h1>История поиска</h1>
+    <table border="1">
+        <tr>
+            <th>Дата и время</th>
+            <th>Статус</th>
+            <th>Средняя схожесть</th>
+            <th>Найденные изображения</th>
+        </tr>
+        {% for entry in history %}
+        <tr>
+            <td>{{ entry[0] }}</td>
+            <td>{{ entry[1] }}</td>
+            <td>{{ entry[2] }}</td>
+            <td>{{ entry[3] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <a href="/">На главную</a>
+</body>
+</html>
 
