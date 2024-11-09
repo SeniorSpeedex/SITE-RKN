@@ -14,7 +14,7 @@ import zipfile
 app = Flask(__name__)
 app.secret_key = 'your_secret_key'
 
-IMAGE_FOLDER = 'static/DASD/'
+IMAGE_FOLDER = 'static/images/'
 os.makedirs(IMAGE_FOLDER, exist_ok=True)
 
 model = applications.VGG16(weights='imagenet', include_top=False, pooling='avg')
