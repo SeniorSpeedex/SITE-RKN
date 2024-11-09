@@ -1,13 +1,13 @@
 # Сайт по поиску смысловых копий изображений для ФГУП "ГРЧЦ"
 **Структура проекта для запуска:**
    /Наш проект/
-       ├── app2.py
-       ├── templates/
-       │   └── index2.html
-       └── static/
-           ├── images/
-           ├── style2.css
-           └── logo.png 
+      - ├── app2.py
+     -  ├── templates/
+     -  │   └── index2.html
+     -  └── static/
+      -     ├── images/
+         -  ├── style2.css
+          - └── logo.png 
    BASH:
    python app2.py
 
