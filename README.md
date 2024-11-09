@@ -16,8 +16,12 @@
 2) NumPy(Последняя версия)
 3) TensorFlow.keras(Последняя версия)
 4) Модель VGG16(Включена в Keras)
-5) Zipfile, pandas - для формирования ключевых наборов
-
+5) Zipfile, pandas - для формирования ключевых наборов работы с моделью
+6) PIL - для работы с изображениями
+   -Всё является Open-Source и последними версиями!
+```bash
+pip install tensorflow numpy pandas flask zipfile pillow mimetypes datetime
+```
 **Kill-фичи:**
 1) Возможность скачивания изображений
 2) История поиска изображений
