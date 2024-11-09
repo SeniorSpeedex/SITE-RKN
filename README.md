@@ -8,14 +8,15 @@
       -     ├── images/
          -  ├── style2.css
           - └── logo.png 
-   BASH:
+   ```bash
    python app2.py
-
+   ```
 **Применяемые технологии:**
-1) Flask
-2) NumPy
-3) TensorFlow.keras
-4) Модель VGG16
+1) Flask(Последняя версия)
+2) NumPy(Последняя версия)
+3) TensorFlow.keras(Последняя версия)
+4) Модель VGG16(Включена в Keras)
+5) Zipfile, pandas - для формирования ключевых наборов
 
 **Kill-фичи:**
 1) Возможность скачивания изображений
